@@ -1,0 +1,386 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    flex: 1;
+    overflow-x: scroll;
+    height: 100vh;
+}
+.tree ul {
+    padding-top: 20px;
+    position: relative;
+
+    float:left;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+.tree .spouseUL {
+    padding-top: 0px;
+}
+
+.tree ul .grandcards {
+    padding-bottom: 20px;
+    position: relative;
+    right: 95px;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+.tree li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0 5px;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+/* Lines between siblings */
+
+.tree li::before, .tree li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 2px solid #5a0e00;
+    width: 50%;
+    height: 20px;
+}
+/*  */
+/* .tree .groupLine::before, .tree .groupLine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: calc(50% + 95px);
+    border-top: 2px solid #5a0e00;
+    width: calc(50% + 95px);
+    height: 20px;
+} */
+/*  */
+
+/* Line down from just above child to parent*/
+
+.tree li::after {
+    right: auto;
+    left: 50%;
+    border-left: 2px solid #5a0e00;
+}
+
+.tree .groupLine::after {
+    right: auto;
+    left: 100px;
+    border-left: 2px solid #5a0e00;
+    width: calc(100% - 100px);
+}
+
+.tree .groupLine::before {
+    left: auto;
+    right: calc(100% - 100px);
+    width: 100px;
+}
+
+/*We need to remove left-right connectors from elements without
+any siblings*/
+.tree li:only-child::after, .tree li:only-child::before {
+    display: none;
+}
+
+/*Remove space from the top of single children*/
+.tree li:only-child {
+    padding-top: 0;
+}
+
+/*Remove left connector from first child and
+right connector from last child*/
+.tree li:first-child::before, .tree li:last-child::after {
+    border: 0 none;
+}
+
+/*Adding back the vertical connector to the last nodes*/
+/* Last child */
+.tree li:last-child::before {
+    border-right: 2px solid #5a0e00;
+    border-radius: 0 5px 0 0;
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+}
+
+.tree li:first-child::after {
+    border-radius: 5px 0 0 0;
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+}
+
+/* Bottom dash between married people */
+/* .tree li > div:nth-child(2):before {
+    border-bottom: 2px solid #5a0e00;
+    position: absolute;
+    content: "";
+    top: 55%;
+    right: 100%;
+    width: 40px;
+    height: 0;
+} */
+
+/* Top line between married people */
+/* .tree li > div:nth-child(2):after {
+    border-bottom: 2px solid #5a0e00;
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 100%;
+    width: 40px;
+    height: 0;
+} */
+
+.right_spouse_card::before {
+    border-bottom: 2px solid #5a0e00;
+    position: absolute;
+    content: "";
+    top: 55%;
+    right: 100%;
+    width: 40px;
+    height: 0;
+}
+
+.right_spouse_card:after {
+    border-bottom: 2px solid #5a0e00;
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 100%;
+    width: 40px;
+    height: 0;
+}
+
+.left_spouse_card:before {
+    border-bottom: 2px solid #5a0e00;
+    position: absolute;
+    content: "";
+    top: 55%;
+    left: 100%;
+    width: 40px;
+    height: 0;
+}
+
+.left_spouse_card:after {
+    border-bottom: 2px solid #5a0e00;
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 100%;
+    width: 40px;
+    height: 0;
+}
+
+.ex_spouse:before, .ex_spouse:after {
+    border-bottom: 2px dashed #5a0e00;
+}
+
+.cur_spouse:before, .cur_spouse:after {
+    border-bottom: 2px solid #5a0e00;
+}
+
+/*Time to add downward connectors from parents*/
+/* Line up to grand parents */
+/* .tree ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px solid #5a0e00;
+    width: 0;
+    height: 20px;
+} */
+/* Line down form parents */
+/* .tree ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px solid #5a0e00;
+    width: 0;
+    height: 20px;
+} */
+
+.tree .groupcard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px solid #5a0e00;
+    width: 0;
+    height: 20px;
+}
+
+.tree .groupcard-child::before {
+    top: -135px;
+    height: 155px;
+}
+
+.groupcard-child .groupcard{
+    padding-top: 0;
+}
+
+/* .tree .multiExParent0::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 200px;
+    border-left: 2px solid #5a0e00;
+    width: 0;
+    height: 20px;
+}
+
+.tree .multiExParent1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 200px;
+    border-left: 2px solid #5a0e00;
+    width: 0;
+    height: 20px;
+}
+
+.tree .multiExParent2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 200px;
+    border-left: 2px solid #5a0e00;
+    width: 0;
+    height: 20px;
+}
+ */
+.tree ul .maincard::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    border-left: 2px solid #5a0e00;
+    width: 0;
+    /* height: 20px; */
+}
+
+.tree li > a {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #666;
+    font-family: arial, verdana, tahoma;
+    font-size: 11px;
+    display: inline-block;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+
+.tree li .card {
+    /*background: linear-gradient(45deg, #2ec5ff, #ffffff00);*/
+    border: none;
+    box-shadow: 3px 7px 17px 7px #d2d2d2;
+    color: #666;
+    font-family: arial, verdana, tahoma;
+    margin: 0px 20px 0px 20px;
+    display: inline-block;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+.men {
+    background: linear-gradient(45deg, #1E90FF, #ffffff00);
+}
+
+.women {
+    background: linear-gradient(45deg, #ff0fa3, #ffffff00);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+
+/*Time for some hover effects*/
+/*We will apply the hover effect the the lineage of the element also*/
+/* don't know */
+.tree li a:hover, .tree li a:hover + ul li a {
+    background: #c8e4f8;
+    color: #000;
+    border: 1px solid #94a0b4;
+}
+
+/*Connector styles on hover*/
+.tree li a:hover + ul li::after,
+.tree li a:hover + ul li::before,
+.tree li a:hover + ul::before,
+.tree li a:hover + ul ul::before {
+    border-color: #2875fc;
+}
+
+.card {
+    width: 150px;
+    height: 300px;
+}
+
+.personfullname {
+    height: 120px;
+}
+
+img {
+    /* height: 100px; */
+    width: 100px;
+}
+
+.tree ul {
+    display: flex;
+    justify-content: center;
+}
+
+.parent {
+    margin-left: 250px !important;
+}
+
+td {
+    vertical-align: middle !important;
+}
+
+.wrapme {
+    background: grey;
+}
+
+.me:before {
+    content: "ME";
+    background: white;
+    color: black;
+    padding: 5px;
+    top: 0%;
+    position: absolute;
+    right: 75%;
+    border-radius: 50px;
+}
+
+.editDate {
+    position: absolute;
+    z-index: 1;
+    right: 0px;
+    top: 0px;
+}
+
+.editDate > button {
+    padding: 2px 8px 2px 8px;
+}

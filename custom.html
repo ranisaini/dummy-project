@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Family Tree</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="custom.css" rel="stylesheet" />
+</head>
+<body>
+
+<style>
+
+#myBtn {
+  display: box;
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+.tree ul:first-child{
+    padding-bottom: 40px;
+}
+
+</style>
+
+
+
+	<style>
+	
+	ul.groupcard
+{
+	float:none;
+	padding-top:20px!important;
+}
+
+#groupLine1::after {
+    width: 0px !important;
+    left: calc(50% - 0px) !important;
+}
+
+
+	</style>
+	
+	
+	
+	<style>
+	#groupLine0::after {
+    width: calc(2% - 97px) !important;
+    left: 305px !important;
+}
+	</style>
+	
+
+<!-- <div class="container text-center">
+    <a href="./add.php" class="btn btn-primary btn-lg m-5 newPerson" style="border-radius: 50px"><i
+                class="fa fa-user-plus"></i> New Person</a>
+</div> -->
+<div class="tree" style = "width : 100%;">
+   <ul class="">
+      <li>
+         <div name="mycard" id="mycard" class="maincard card women wrap main_card0">
+            <div id="" class="card-body ">
+               <div class="btn-group editDate">
+                  <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                  <div class="dropdown-menu"><a class="dropdown-item" href="/profile/profileview.php?userid=267">View Profile</a></div>
+               </div>
+               <div class="row text-center" id = "267">
+                  <div class="col-md-12"><img src="person.png" class="rounded-circle"/></div>
+                  <div class="col-md-12 mt-3 personfullname">
+                     <a href="#">
+                        <h4>George Enoch</h4>
+                     </a>
+                     <h6>-0001 - Living</h6>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6"><button type="button" class="btn btn-danger lg control" data-toggle="modal"data-target="#deleteModal" data-key="267"><i class="fa fa-trash"></i></button></div>
+                  <div class="col-md-6"><button class="btn btn-success lg control" data-toggle="modal" data-target="#relationModal" data-key="267"><i class="fas fa-user-plus"></i></button></div>
+               </div>
+            </div>
+         </div>
+         <div>
+            <ul class="groupcard">
+               <li class="groupLine" id="groupLine0">
+                  <ul class="spouseUL">
+                     <li>
+                        <div name="mycard" id="mycard" class="maincard card women wrap main_card1">
+                           <div id="" class="card-body ">
+                              <div class="btn-group editDate">
+                                 <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                                 <div class="dropdown-menu"><a class="dropdown-item" href="/profile/profileview.php?userid=213">View Profile</a></div>
+                              </div>
+                              <div class="row text-center" id = "213">
+                                 <div class="col-md-12"><img src="person.png" class="rounded-circle"/></div>
+                                 <div class="col-md-12 mt-3 personfullname">
+                                    <a href="#">
+                                       <h4>James  Enoch</h4>
+                                    </a>
+                                    <h6>1939 - Living</h6>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-6"><button type="button" class="btn btn-danger lg control" data-toggle="modal"data-target="#deleteModal" data-key="213"><i class="fa fa-trash"></i></button></div>
+                                 <div class="col-md-6"><button class="btn btn-success lg control" data-toggle="modal" data-target="#relationModal" data-key="213"><i class="fas fa-user-plus"></i></button></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card men cur_spouse right_spouse_card">
+                           <div class="card-body">
+                              <div class="btn-group editDate">
+                                 <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                                 <div class="dropdown-menu"><a class="dropdown-item control" href="#" data-toggle="modal"data-target="#editDateModal" data-key="213#219">Edit</a><a class="dropdown-item" href="/profile/profileview.php?userid=219">View Profile</a></div>
+                              </div>
+                              <div class="row text-center" id = "219">
+                                 <div class="col-md-12"><img src="person.png" class="rounded-circle"/></div>
+                                 <div class="col-md-12 mt-3 personfullname">
+                                    <a href="#">
+                                       <h4>Doraleen Enoch</h4>
+                                    </a>
+                                    <h6>1943 - Living</h6>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-6"><button type="button" class="btn btn-danger lg control" data-toggle="modal"data-target="#deleteModal" data-key="219"><i class="fa fa-trash"></i></button></div>
+                                 <div class="col-md-6"><button class="btn btn-success lg control" data-toggle="modal" data-target="#relationModal" data-key="sp#213@219"><i class="fas fa-user-plus"></i></button></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <ul class="groupcard">
+                              <li class="groupLine" id="groupLine1">
+                                 <ul class="spouseUL">
+                                    <li>
+                                       <div class="card women ex_spouse left_spouse_card">
+                                          <div class="card-body">
+                                             <div class="btn-group editDate">
+                                                <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                                                <div class="dropdown-menu"><a class="dropdown-item control" href="#" data-toggle="modal"data-target="#editDateModal" data-key="68#572">Edit</a><a class="dropdown-item" href="/profile/profileview.php?userid=572">View Profile</a></div>
+                                             </div>
+                                             <div class="row text-center" id = "572">
+                                                <div class="col-md-12"><img src="person.png" class="rounded-circle"/></div>
+                                                <div class="col-md-12 mt-3 personfullname">
+                                                   <a href="#">
+                                                      <h4>Kim    Enoch</h4>
+                                                   </a>
+                                                   <h6>-0001 - End Year</h6>
+                                                </div>
+                                             </div>
+                                             <div class="row">
+                                                <div class="col-md-6"><button type="button" class="btn btn-danger lg control" data-toggle="modal"data-target="#deleteModal" data-key="572"><i class="fa fa-trash"></i></button></div>
+                                                <div class="col-md-6"><button class="btn btn-success lg control" data-toggle="modal" data-target="#relationModal" data-key="sp#68@572"><i class="fas fa-user-plus"></i></button></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div name="mycard" id="mycard" class="maincard card women wrapme main_card2">
+                                          <div id="me" class="card-body me">
+                                             <div class="btn-group editDate">
+                                                <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                                                <div class="dropdown-menu"><a class="dropdown-item" href="/profile/profileview.php?userid=68">View Profile</a></div>
+                                             </div>
+                                             <div class="row text-center" id = "68">
+                                                <div class="col-md-12"><img src="person.png" class="rounded-circle"/></div>
+                                                <div class="col-md-12 mt-3 personfullname">
+                                                   <a href="#">
+                                                      <h4>Christopher  Enoch</h4>
+                                                   </a>
+                                                   <h6>1965 - Living</h6>
+                                                </div>
+                                             </div>
+                                             <div class="row">
+                                                <div class="col-md-6"><button type="button" class="btn btn-danger lg control" data-toggle="modal"data-target="#deleteModal" data-key="68"><i class="fa fa-trash"></i></button></div>
+                                                <div class="col-md-6"><button class="btn btn-success lg control" data-toggle="modal" data-target="#relationModal" data-key="68"><i class="fas fa-user-plus"></i></button></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="card men cur_spouse right_spouse_card">
+                                          <div class="card-body">
+                                             <div class="btn-group editDate">
+                                                <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                                                <div class="dropdown-menu"><a class="dropdown-item control" href="#" data-toggle="modal"data-target="#editDateModal" data-key="68#216">Edit</a><a class="dropdown-item" href="/profile/profileview.php?userid=216">View Profile</a></div>
+                                             </div>
+                                             <div class="row text-center" id = "216">
+                                                <div class="col-md-12"><img src="person.png" class="rounded-circle"/></div>
+                                                <div class="col-md-12 mt-3 personfullname">
+                                                   <a href="#">
+                                                      <h4>Bronwyn  Enoch</h4>
+                                                   </a>
+                                                   <h6>1962 - Living</h6>
+                                                </div>
+                                             </div>
+                                             <div class="row">
+                                                <div class="col-md-6"><button type="button" class="btn btn-danger lg control" data-toggle="modal"data-target="#deleteModal" data-key="216"><i class="fa fa-trash"></i></button></div>
+                                                <div class="col-md-6"><button class="btn btn-success lg control" data-toggle="modal" data-target="#relationModal" data-key="sp#68@216"><i class="fas fa-user-plus"></i></button></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div>
+                                          <ul class="groupcard">
+                                             <li>
+                                                <ul class="">
+                                                   <li>
+                                                      <div name="mycard" id="mycard" class="maincard card men wrap main_card3">
+                                                         <div id="" class="card-body ">
+                                                            <div class="btn-group editDate">
+                                                               <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                                                               <div class="dropdown-menu"><a class="dropdown-item" href="/profile/profileview.php?userid=212">View Profile</a></div>
+                                                            </div>
+                                                            <div class="row text-center" id = "212">
+                                                               <div class="col-md-12"><img src="person.png" class="rounded-circle"/></div>
+                                                               <div class="col-md-12 mt-3 personfullname">
+                                                                  <a href="#">
+                                                                     <h4>Heather  Enoch</h4>
+                                                                  </a>
+                                                                  <h6>1996 - Living</h6>
+                                                               </div>
+                                                            </div>
+                                                            <div class="row">
+                                                               <div class="col-md-6"><button type="button" class="btn btn-danger lg control" data-toggle="modal"data-target="#deleteModal" data-key="212"><i class="fa fa-trash"></i></button></div>
+                                                               <div class="col-md-6"><button class="btn btn-success lg control" data-toggle="modal" data-target="#relationModal" data-key="212"><i class="fas fa-user-plus"></i></button></div>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                      <div></div>
+                                                   </li>
+                                                </ul>
+                                             </li>
+                                          </ul>
+                                          <ul></ul>
+                                          <ul style="width: 190px;"></ul>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                           <ul></ul>
+                        </div>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+      </li>
+   </ul>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>
